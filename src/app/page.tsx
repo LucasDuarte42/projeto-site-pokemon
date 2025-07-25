@@ -7,6 +7,7 @@ import PokemonDashboard from '@/components/dashboard/PokemonDashboard';
 import Header from '@/components/layout/Header';
 import type { FullPokemonData } from '@/types/pokemon';
 
+
 async function getFullPokemonData(): Promise<FullPokemonData[]> {
   const res = await fetch('/pokemon-data-full.json');
   if (!res.ok) {

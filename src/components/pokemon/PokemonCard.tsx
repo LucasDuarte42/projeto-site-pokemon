@@ -1,15 +1,11 @@
-// src/components/pokemon/PokemonCard.tsx
 
 import Image from 'next/image';
-// Importamos os tipos para que o componente saiba qual o formato dos dados que vai receber
 import type { FullPokemonData, PokemonStats } from '@/types/pokemon';
 
-// Definimos as props que o nosso card vai receber
 interface PokemonCardProps {
   pokemon: FullPokemonData;
 }
 
-// Um pequeno componente auxiliar para formatar os nomes dos stats
 const StatName: React.FC<{ stat: keyof PokemonStats }> = ({ stat }) => {
   const names = {
     hp: 'HP',
@@ -88,11 +84,7 @@ export default function PokemonCard({ pokemon }: PokemonCardProps) {
       <div className="mt-4 pt-4 border-t border-gray-700/50 text-left">
         <h3 className="text-sm font-bold text-center mb-2 text-yellow-400">Base Stats</h3>
         <div className="space-y-2">
-          {/* 
-            Object.entries transforma o objeto de stats em um array de [chave, valor]
-            Ex: [['hp', 45], ['attack', 49], ...]
-            Isso nos permite fazer um .map() para renderizar cada stat.
-          */}
+        
           {(Object.entries(pokemon.stats) as [keyof PokemonStats, number][]).map(([statName, statValue]) => (
             <div key={statName} className="grid grid-cols-3 items-center gap-2 text-white">
               <StatName stat={statName} />

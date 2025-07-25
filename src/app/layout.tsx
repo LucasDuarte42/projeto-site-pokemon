@@ -1,4 +1,4 @@
-// src/app/layout.tsx
+
 
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
@@ -20,9 +20,9 @@ export const metadata: Metadata = {
   description: "Explore o mundo dos Pokémon com filtros e dados detalhados.",
 };
 
-// src/app/layout.tsx
 
-// ... (importações de fontes, etc.)
+
+
 
 export default function RootLayout({
   children,
@@ -32,7 +32,7 @@ export default function RootLayout({
   return (
     <html lang="pt-br">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-900 text-white`}>
-        {/* REMOVA O <Header /> DAQUI */}
+       
         <main>{children}</main>
       </body>
     </html>

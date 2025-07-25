@@ -1,16 +1,16 @@
-// src/components/dashboard/PokemonDashboard.tsx
+
 
 "use client";
 
 import type { FullPokemonData } from '@/types/pokemon';
 import PokemonCard from '@/components/pokemon/PokemonCard';
 
-// 1. A ÚNICA PROP AGORA É A LISTA DE POKÉMON
+
 interface PokemonDashboardProps {
   pokemons: FullPokemonData[];
 }
 
-// 2. O COMPONENTE FICA MUITO MAIS SIMPLES
+
 export default function PokemonDashboard({ pokemons }: PokemonDashboardProps) {
   return (
     <div className=" min-h-screen pt-10">
@@ -20,7 +20,7 @@ export default function PokemonDashboard({ pokemons }: PokemonDashboardProps) {
             <PokemonCard 
               key={pokemon.id} 
               pokemon={pokemon}
-              // A função de clique para o modal ainda pode viver aqui se desejar
+           
             />
           ))}
         </div>
