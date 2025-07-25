@@ -20,6 +20,10 @@ export const metadata: Metadata = {
   description: "Explore o mundo dos Pokémon com filtros e dados detalhados.",
 };
 
+// src/app/layout.tsx
+
+// ... (importações de fontes, etc.)
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -27,19 +31,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-br">
-      {/* 
-        A CORREÇÃO DEFINITIVA ESTÁ AQUI:
-        Esta classe `bg-gray-900` (ou a cor que você escolher)
-        será aplicada a todo o corpo da página.
-      */}
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-900 text-white`}
-      >
-        <Header />
-        <main>
-          {children}
-        </main>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-900 text-white`}>
+        {/* REMOVA O <Header /> DAQUI */}
+        <main>{children}</main>
       </body>
     </html>
   );
 }
+
