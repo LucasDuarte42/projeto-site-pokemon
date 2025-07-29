@@ -18,12 +18,17 @@ interface HeaderProps {
   generations: number[];
   selectedGeneration: string;
   onGenerationChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
+
+  egg_groups: string[]; // Adicionando egg_group como opcional
+  selectedEggGroup: string;
+  onEggGroupChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
 }
 
 export default function Header({ 
   searchTerm, onSearchChange,
   types, selectedType, onTypeChange,
   generations, selectedGeneration, onGenerationChange
+  , egg_groups, selectedEggGroup, onEggGroupChange
 }: HeaderProps) {
   return (
     <header className="w-full bg-gray-800/80 backdrop-blur-sm border-b border-gray-700 sticky top-0 z-50">
@@ -65,7 +70,18 @@ export default function Header({
               <option key={gen} value={gen}>Geração {gen}</option>
             ))}
           </select>
-          </div>
+          <select
+            value={selectedEggGroup}
+            onChange={onEggGroupChange}
+            className="bg-gray-700 border border-gray-600 rounded-lg px-3 py-2 text-white focus:outline-none focus:ring-2 focus:ring-yellow-500 transition w-full sm:w-auto"
+          >
+            <option value="">Egg Groups</option>
+            {egg_groups.map(group => (
+              <option key={group} value={group} className="capitalize"> {group}</option>
+            ))}
+          </select>
+
+          
           {/* --- CAMPO DE PESQUISA --- */}
         <div className="relative flex-grow max-w-xs">
           <input
@@ -77,6 +93,7 @@ export default function Header({
           />
         </div>
       </div>
+    </div>
     </header>
   );
 }

@@ -24,6 +24,7 @@ export default function HomePage() {
 
   const [selectedType, setSelectedType] = useState('');
   const [selectedGeneration, setSelectedGeneration] = useState('');
+  const [selectedEggGroup, setSelectedEggGroup] = useState(''); // placeholder, você pode trocar para o estado real
 
   useEffect(() => {
     getFullPokemonData()
@@ -57,9 +58,15 @@ export default function HomePage() {
         p.generation === parseInt(selectedGeneration, 10)
       );
     }
+    if (selectedEggGroup) {
+      pokemonsToFilter = pokemonsToFilter.filter(p =>
+        p.egg_groups.includes(selectedEggGroup.toLowerCase())
+      );
+    }
+  
 
    return pokemonsToFilter;
-  }, [allPokemons, searchTerm, selectedType, selectedGeneration]);
+  }, [allPokemons, searchTerm, selectedType, selectedGeneration, selectedEggGroup]);
   
     
   const allTypes = useMemo(() => {
@@ -70,6 +77,13 @@ export default function HomePage() {
     const generations = new Set(allPokemons.map(p => p.generation));
     return Array.from(generations).sort((a, b) => a - b);
   }, [allPokemons]);
+  const allEgg_groups = useMemo(() => {
+  const eggGroupsFlat = allPokemons.flatMap(p => p.egg_groups);
+  const uniqueEggGroups = new Set(eggGroupsFlat);
+  return Array.from(uniqueEggGroups).sort();
+}, [allPokemons]);
+
+
 
   return (
     <>
@@ -84,6 +98,10 @@ export default function HomePage() {
         generations={allGenerations}
         selectedGeneration={selectedGeneration}
         onGenerationChange={(e) => setSelectedGeneration(e.target.value)}
+
+        egg_groups={allEgg_groups} // placeholder, você pode trocar para o estado real
+        selectedEggGroup={selectedEggGroup}  // placeholder, você pode trocar para o estado real
+        onEggGroupChange={(e) => setSelectedEggGroup(e.target.value)} // placeholder
       />
 
       {isLoading ? (
