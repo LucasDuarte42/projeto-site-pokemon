@@ -1,6 +1,8 @@
 
 import Image from 'next/image';
 import type { FullPokemonData, PokemonStats } from '@/types/pokemon';
+import { getTypeColors } from '@/components/pokemon/pokemonColor';
+
 
 interface PokemonCardProps {
   pokemon: FullPokemonData;
@@ -26,30 +28,7 @@ export default function PokemonCard({ pokemon }: PokemonCardProps) {
     if (value < 90) return 'bg-yellow-500';
     return 'bg-green-500';
   };
-  const getTypeColors = (type: string): string => {
-    const lowerCaseType = type.toLowerCase();
-    switch (lowerCaseType) {
-      case 'Grass': return 'bg-green-500 text-white';
-      case 'Fire': return 'bg-red-600 text-white';
-      case 'Water': return 'bg-blue-500 text-white';
-      case 'Bug': return 'bg-lime-500 text-black';
-      case 'Normal': return 'bg-gray-400 text-black';
-      case 'Poison': return 'bg-purple-600 text-white';
-      case 'Electric': return 'bg-yellow-400 text-black';
-      case 'Ground': return 'bg-amber-700 text-white';
-      case 'Fairy': return 'bg-pink-400 text-black';
-      case 'Fighting': return 'bg-orange-800 text-white';
-      case 'Psychic': return 'bg-pink-600 text-white';
-      case 'Rock': return 'bg-stone-500 text-white';
-      case 'Ghost': return 'bg-indigo-700 text-white';
-      case 'Ice': return 'bg-cyan-300 text-black';
-      case 'Dragon': return 'bg-indigo-500 text-white';
-      case 'Dark': return 'bg-gray-800 border border-white text-white';
-      case 'steel': return 'bg-slate-400 text-black';
-      case 'Flying': return 'bg-sky-400 text-black';
-      default: return 'bg-gray-700 text-white';
-    }
-  };
+  // Renderiza o card do Pokémon
 
   return (
     <div

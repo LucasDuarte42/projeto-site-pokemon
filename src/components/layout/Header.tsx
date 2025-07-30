@@ -19,7 +19,7 @@ interface HeaderProps {
   selectedGeneration: string;
   onGenerationChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
 
-  egg_groups: string[]; // Adicionando egg_group como opcional
+  egg_groups: string[]; 
   selectedEggGroup: string;
   onEggGroupChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
 }
