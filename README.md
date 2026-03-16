@@ -58,7 +58,7 @@ Abra [http://localhost:3000](http://localhost:3000) no seu navegador para ver o 
 
 Após iniciar o servidor de desenvolvimento, a aplicação estará disponível no seu navegador. Você poderá navegar pela lista de Pokémon, utilizar os filtros de busca e visualizar os detalhes de cada um. A interface é intuitiva e projetada para uma experiência de usuário fluida.
 
-![Screenshot do Projeto](./Print tela.jpg)
+![Screenshot do Projeto](./Print-tela.jpg)
 
 
 ## 📂 Estrutura de Diretórios
